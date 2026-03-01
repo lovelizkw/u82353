@@ -2,39 +2,78 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Отчет u82353</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 1 - u82353</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        img { display: block; margin: 20px 0; border: 2px solid #333; max-width: 90%; }
-        h2 { border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            background: #f9f9f9;
+            color: #333;
+        }
+        h1, h2 {
+            color: #1a3c6e;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 8px;
+        }
+        img {
+            max-width: 100%;
+            border: 2px solid #444;
+            margin: 15px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            display: block;
+        }
+        pre, code {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .terminal {
+            background: #000;
+            color: #0f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
-    <h1>Отчет по заданию № 1</h1>
 
-    <h2>1. Ping (IP-адрес)<br>
-Добавила –c 4, чтобы не было бесконечного пингования</h2>
-    <img src="ping.png" alt="Пинг">
+<h1>Отчет по заданию №1 «Программно-аппаратные средства Web»</h1>
+<p>Студент: u82353</p>
 
-    <h2>2. Дата регистрации домена kubsu.ru (nslookup)</h2>
-    <img src="nslookupAkubsu.png" alt="Запись A">
-    <img src="nslookupMXkubsu.png" alt="Запись MX">
-    <h2>Дата регистрации домена kubsu-dev.ru (nslookup)</h2>
-    <img src="nslookupAkubsudev.png" alt="Запись A">
-    <img src="nslookupMXkubsudev.png" alt="Запись MX">
+<h2>1. Подключение по SSH</h2>
+<p>Получила логин u82353 и пароль от преподавателя. Подключилась к серверу kubsu-dev.ru по SSH с помощью PuTTY.</p>
 
-    <h2>3. Данные о домене (Whois)</h2>
-    <img src="whoiskubsu.png" alt="Whois Kubsu">
-    <img src="whoiskubsudev.png" alt="Whois Kubsu-Dev">
+<h2>2. Ping (IP-адрес kubsu.ru)</h2>
+<p>Выполнила команду ping kubsu.ru -c 4, чтобы не было бесконечного пинга.</p>
+<img src="ping.png" alt="Скриншот ping kubsu.ru">
 
-    <h2>4. Работа через SFTP (FileZilla)</h2>
-    <img src="filezila.png" alt="Скриншот FileZilla">
-        <h2>Пункт 5: Создать веб-страницу index.html со скриншотами и разместить на сервере через Git</h2>
-    <p>Создала файл index.html локально в редакторе. Добавила все файлы (index.html и скриншоты) в локальный git-репозиторий: git add ., git commit -m "Добавлены файлы задания". Запушила в удалённый репозиторий на GitHub. Затем подключилась по SSH к серверу, перешла в каталог www, удалила старую папку если была (rm -rf задание_1), и склонировала репозиторий: git clone https://github.com/мой_логин/мой_репозиторий.git задание_1. Страница теперь доступна по адресу http://u82353.kubsu-dev.ru/задание_1/.</p>
-     <img src="clone.png" alt="Скриншот cmd">
+<h2>3. nslookup A- и MX-записи kubsu.ru</h2>
+<img src="nslookupAkubsu.png" alt="A-запись kubsu.ru">
+<img src="nslookupMXkubsu.png" alt="MX-запись kubsu.ru">
 
-    <h2>Пункт 6: Скачать файлы с сервера через SFTP с помощью FileZilla</h2>
-    <p>Установила FileZilla, подключилась к серверу по SFTP: хост kubsu-dev.ru, порт 22, логин u82353, пароль. Перешла в /www/задание_1/, скачала все файлы (index.html и скриншоты) на локальный компьютер. Сделала скриншот окна FileZilla после скачивания (с логом переноса файлов), добавила скриншот в git-репозиторий и обновила index.html с ссылкой на него. Затем запушила изменения и обновила сервер командой git pull в папке задание_1.</p>
-    <img src="filezilla.png" alt="Скриншот FileZilla">
+<h2>3. nslookup A- и MX-записи kubsu-dev.ru</h2>
+<img src="nslookupAkubsudev.png" alt="A-запись kubsu-dev.ru">
+<img src="nslookupMXkubsudev.png" alt="MX-запись kubsu-dev.ru">
+
+<h2>4. Whois (дата регистрации доменов)</h2>
+<img src="whoiskubsu.png" alt="whois kubsu.ru">
+<img src="whoiskubsudev.png" alt="whois kubsu-dev.ru">
+
+<h2>5. Создание веб-страницы и размещение через Git</h2>
+<p>Создала index.html локально, добавила скриншоты. Загрузила в репозиторий GitHub. Склонировала на сервер в /www/задание-1/ командой git clone.</p>
+<img src="clone.png" alt="Скриншот клонирования на сервере" style="max-width:800px;">
+
+<h2>6. Скачивание файлов через SFTP (FileZilla)</h2>
+<p>Подключилась по SFTP (host: kubsu-dev.ru, порт 22, логин u82353). Скачала все файлы из /www/задание-1/. Скриншот после скачивания:</p>
+<img src="filezilla.png" alt="Скриншот FileZilla после скачивания">
+
 </body>
 </html>
