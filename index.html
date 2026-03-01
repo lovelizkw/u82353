@@ -3,77 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Задание 1 - u82353</title>
+    <title>Задание 1 — u82353</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             line-height: 1.6;
-            margin: 20px;
             max-width: 1100px;
-            margin-left: auto;
-            margin-right: auto;
-            background: #f9f9f9;
-            color: #333;
+            margin: 30px auto;
+            padding: 0 20px;
+            background: #f8f9fa;
+            color: #212529;
         }
-        h1, h2 {
-            color: #1a3c6e;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 8px;
+        h1 {
+            color: #0d47a1;
+            text-align: center;
+            border-bottom: 3px solid #0d47a1;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1e88e5;
+            margin-top: 2.5em;
+            border-left: 6px solid #1e88e5;
+            padding-left: 15px;
+        }
+        p {
+            margin: 1em 0;
+        }
+        .description {
+            background: #e3f2fd;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 5px solid #1e88e5;
         }
         img {
             max-width: 100%;
-            border: 2px solid #444;
+            border: 2px solid #90caf9;
+            border-radius: 6px;
             margin: 15px 0;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             display: block;
         }
-        pre, code {
-            background: #f4f4f4;
-            padding: 10px;
-            border-radius: 5px;
+        pre {
+            background: #263238;
+            color: #e0f7fa;
+            padding: 15px;
+            border-radius: 6px;
             overflow-x: auto;
+            font-size: 0.95em;
+            margin: 10px 0;
         }
         .terminal {
             background: #000;
-            color: #0f0;
-            padding: 15px;
-            border-radius: 5px;
+            color: #00ff41;
             font-family: 'Courier New', monospace;
+            padding: 12px;
+            border-radius: 4px;
             margin: 10px 0;
         }
     </style>
 </head>
 <body>
 
-<h1>Отчет по заданию №1 «Программно-аппаратные средства Web»</h1>
-<p>Студент: u82353</p>
+<h1>Отчёт по заданию №1<br>«Программно-аппаратные средства Web»</h1>
+<p style="text-align:center; font-weight:bold;">Студент: u82353</p>
 
-<h2>1. Подключение по SSH</h2>
-<p>Получила логин u82353 и пароль от преподавателя. Подключилась к серверу kubsu-dev.ru по SSH с помощью PuTTY.</p>
+<div class="description">
+    <strong>Цель задания:</strong> ознакомиться с основными командами для работы с сетью и веб-сервером, получить практические навыки работы с SSH, DNS, whois, Git и SFTP.
+</div>
 
-<h2>2. Ping (IP-адрес kubsu.ru)</h2>
-<p>Выполнила команду ping kubsu.ru -c 4, чтобы не было бесконечного пинга.</p>
-<img src="ping.png" alt="Скриншот ping kubsu.ru">
+<h2>Пункт 1. Подключение к учебному серверу по SSH</h2>
+<div class="description">
+    Получила от преподавателя логин <strong>u82353</strong> и пароль для доступа к учебному серверу <strong>kubsu-dev.ru</strong>.<br>
+    Подключилась по протоколу SSH с помощью клиента PuTTY:
+    <ul>
+        <li>Host Name (or IP address): kubsu-dev.ru</li>
+        <li>Port: 22</li>
+        <li>Connection type: SSH</li>
+    </ul>
+    После ввода логина и пароля успешно вошла в терминал сервера.
+</div>
 
-<h2>3. nslookup A- и MX-записи kubsu.ru</h2>
+<h2>Пункт 2. Узнать IP-адрес веб-сервера kubsu.ru с помощью ping</h2>
+<div class="description">
+    На сервере выполнила команду <code>ping kubsu.ru -c 4</code> (опция -c 4 ограничивает количество пакетов до 4, чтобы пинг не был бесконечным).<br>
+    Команда показала реальный IP-адрес сервера kubsu.ru — 185.13.84.92.
+</div>
+<img src="ping.png" alt="Скриншот команды ping kubsu.ru">
+
+<h2>Пункт 3. Узнать A- и MX-записи доменов kubsu.ru и kubsu-dev.ru с помощью nslookup</h2>
+<div class="description">
+    Выполнила следующие команды:<br><br>
+    Для kubsu.ru:
+    <ul>
+        <li><code>nslookup kubsu.ru</code> — получила A-запись (IP-адрес)</li>
+        <li><code>nslookup -type=MX kubsu.ru</code> — получила MX-запись (почтовый сервер)</li>
+    </ul>
+    Для kubsu-dev.ru:
+    <ul>
+        <li><code>nslookup kubsu-dev.ru</code> — получила A-запись</li>
+        <li><code>nslookup -type=MX kubsu-dev.ru</code> — MX-запись не найдена (No answer)</li>
+    </ul>
+</div>
 <img src="nslookupAkubsu.png" alt="A-запись kubsu.ru">
 <img src="nslookupMXkubsu.png" alt="MX-запись kubsu.ru">
-
-<h2>3. nslookup A- и MX-записи kubsu-dev.ru</h2>
 <img src="nslookupAkubsudev.png" alt="A-запись kubsu-dev.ru">
 <img src="nslookupMXkubsudev.png" alt="MX-запись kubsu-dev.ru">
 
-<h2>4. Whois (дата регистрации доменов)</h2>
+<h2>Пункт 4. Узнать дату регистрации доменов с помощью whois</h2>
+<div class="description">
+    Выполнила команды:
+    <ul>
+        <li><code>whois kubsu.ru</code></li>
+        <li><code>whois kubsu-dev.ru</code></li>
+    </ul>
+    В выводе искала строки с датой регистрации (created / registered).  
+    Для kubsu.ru дата регистрации видна в выводе whois.
+</div>
 <img src="whoiskubsu.png" alt="whois kubsu.ru">
 <img src="whoiskubsudev.png" alt="whois kubsu-dev.ru">
 
-<h2>5. Создание веб-страницы и размещение через Git</h2>
-<p>Создала index.html локально, добавила скриншоты. Загрузила в репозиторий GitHub. Склонировала на сервер в /www/задание-1/ командой git clone.</p>
-<img src="clone.png" alt="Скриншот клонирования на сервере" style="max-width:800px;">
+<h2>Пункт 5. Создать веб-страницу index.html со скриншотами и разместить на сервере через Git</h2>
+<div class="description">
+    Создала файл index.html локально в текстовом редакторе. Добавила в него текст задания и теги &lt;img&gt; со скриншотами.<br>
+    Добавила все файлы в локальный git-репозиторий:
+    <pre>git add index.html *.png
+git commit -m "Добавлены скриншоты и описание пунктов задания"
+git push</pre>
+    Запушила изменения в удалённый репозиторий на GitHub.<br><br>
+    На сервере выполнила:
+    <pre>cd www
+rm -rf задание-1
+git clone https://github.com/lovelizkw/u82353.git задание-1</pre>
+    Страница стала доступна по адресу: http://u82353.kubsu-dev.ru/задание-1/
+</div>
+<img src="clone.png" alt="Скриншот клонирования репозитория на сервере">
 
-<h2>6. Скачивание файлов через SFTP (FileZilla)</h2>
-<p>Подключилась по SFTP (host: kubsu-dev.ru, порт 22, логин u82353). Скачала все файлы из /www/задание-1/. Скриншот после скачивания:</p>
-<img src="filezilla.png" alt="Скриншот FileZilla после скачивания">
+<h2>Пункт 6. Скачать файлы с сервера через SFTP с помощью FileZilla</h2>
+<div class="description">
+    Установила программу FileZilla.<br>
+    Подключилась по протоколу SFTP:
+    <ul>
+        <li>Host: kubsu-dev.ru</li>
+        <li>Username: u82353</li>
+        <li>Password: (мой пароль)</li>
+        <li>Port: 22</li>
+        <li>Protocol: SFTP</li>
+    </ul>
+    Перешла в каталог /www/задание-1/<br>
+    Скачала все файлы (index.html и все скриншоты .png) на локальный компьютер.<br>
+    Сделала скриншот окна FileZilla после успешного скачивания (с логом переноса файлов).<br>
+    Добавила скриншот в репозиторий GitHub, обновила index.html и выполнила git pull на сервере.
+</div>
+<img src="filezilla.png" alt="Скриншот FileZilla после скачивания файлов">
 
 </body>
 </html>
